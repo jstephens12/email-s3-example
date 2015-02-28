@@ -1,0 +1,46 @@
+.big-heading {
+    font-size: xx-large;
+    font-weight: bold;
+    font-family: sans-serif;
+    text-align: center;
+    padding: 25px 50px;
+}
+
+.user-info {
+    text-align: right;
+    font-family: sans-serif;    
+}
+
+.message {
+    color:blue;
+    text-align: center;
+    font-weight: bold;
+    font-size: large;
+    font-family: sans-serif;
+    padding: 25px 50px;
+}
+
+.search-bar {
+    text-align: center;
+    font-family: sans-serif;
+    font-size: large;
+    padding: 25px 50px;
+}
+
+.content {
+    margin-left: auto;
+    margin-right: auto;
+    width: 70%;
+    font-family: sans-serif;
+    padding: 25px 50px;
+}
+
+a {
+     text-decoration: none;
+     color:black;
+     padding: 3px;
+}
+
+a:hover {
+     background-color:lightblue;
+}

@@ -1,0 +1,11 @@
+{% extends "addrbook/search.html" %}
+
+{% block content %}
+    <div class="list">
+        <ul>
+        {% for e in entries %}
+        <li><a href="{% url 'edit' e.id %}">{{e.last_name}}, {{e.first_name}}</a></li>
+        {% endfor %}
+        <ul>
+    </div>
+{% endblock %}

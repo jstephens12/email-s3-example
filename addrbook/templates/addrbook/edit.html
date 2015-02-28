@@ -1,0 +1,52 @@
+{% extends "addrbook/search.html" %}
+
+{% block content %}
+    {% for error in form.non_field_errors %}
+        <p style="color: red">
+            {{ error }}
+        </p>
+    {% endfor %}
+
+    <form method="post" action="{% url 'edit' entry.id %}" enctype="multipart/form-data">
+        <table>
+            {% for field in form.visible_fields %}
+                <tr>
+                    <td>{{field.label_tag}}</td>
+                    <td>{{field}}</td>
+                    <td>{{field.errors}}</td>
+                </tr>
+            {% endfor %}
+            {% if entry.picture_url %}
+                <tr>
+                    <td></td>
+                    <td>
+                        <img src="{{entry.picture_url}}" width="200px">
+                    </td>
+                </tr>
+            {% endif %}
+            <tr>
+                <td>Created:</td>
+                <td>
+                    {{entry.creation_time}}
+                    (by {{entry.created_by.first_name}} {{entry.created_by.last_name}})
+                </td>
+            </tr>
+            <tr>
+                <td>Last Updated:</td>
+                <td>{{entry.update_time}} (by user {{entry.updated_by}})</td>
+            </tr>
+        </table>
+        {% for field in form.hidden_fields %}
+            {{field}} {{field.errors}}
+        {% endfor %}
+        {% csrf_token %}
+        <input type="submit" value="Update">
+    </form>
+
+    <form action="/addrbook/delete/{{entry.id}}" method="post">
+        {% csrf_token %}
+        <input type="submit" value="Delete">
+    </form>
+
+    <script> window.onload = document.getElementById("id_last_name").focus() </script>
+{% endblock %}

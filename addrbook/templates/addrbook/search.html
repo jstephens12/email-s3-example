@@ -1,0 +1,23 @@
+{% extends "addrbook/base.html" %}
+
+{% block user-info %}
+    {{user.first_name}} {{user.last_name}} <br>
+    username={{user.username}}
+    <form action="{% url 'logout' %}" method="get">
+        <input type="submit" value="Logout">
+    </form>
+{% endblock %}
+
+{% block search-bar %}
+    <script>
+        var alphabet="ABCDEFGHIJKLMNOPQRSTUVWXYZ"
+        for (var i=0; i<alphabet.length; i++) {
+            document.write(
+                '<a href="{% url 'search' %}?last=' + alphabet.charAt(i) + '"">' +
+                alphabet.charAt(i) + '</a>\n')
+        }
+    </script>
+    <form action="{% url 'create' %}" method="get">
+        <input type="submit" value="New Entry">
+    </form>
+{% endblock %}

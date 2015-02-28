@@ -1,0 +1,10 @@
+[Email]
+Host: smtp.andrew.cmu.edu
+Port: 465
+User: AndrewID
+Password: YourPassword
+
+[S3]
+Bucket:  S3-Bucket-Name
+AccessKey: YourAccessKey
+SecretKey: Your+Secret+Access+Key
